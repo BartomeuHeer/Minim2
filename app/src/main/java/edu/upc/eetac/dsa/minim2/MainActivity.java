@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     private void setUser(User user){
         Log.d("bartoUser",user.getUserName());
         Picasso.get().load(user.getAvatarUrl()).into(imgUser);
-        tvName.setText(user.getUserName());
+        tvName.setText(user.getName());
         Log.d("bartoUser",user.getFollowers());
         following.setText(user.getFollowing());
         followers.setText(user.getFollowers());
