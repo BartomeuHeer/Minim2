@@ -42,4 +42,8 @@ public class User {
     public void setFollowing(String following) {
         this.following = following;
     }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
 }

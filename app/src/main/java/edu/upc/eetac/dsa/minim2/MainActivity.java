@@ -8,11 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private APIInterface api;
     private RecyclerView recyclerView;
     private TextView followers,following, tvName;
+    private ImageView imgUser;
 
     SharedPreferences sp;
     @Override
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         followers = (TextView) findViewById(R.id.tbFollowers);
         following = (TextView) findViewById(R.id.tbFollowing);
         tvName = (TextView) findViewById(R.id.tvName);
+        imgUser = (ImageView) findViewById(R.id.imageView);
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
@@ -58,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUser(User user){
         Log.d("bartoUser",user.getUserName());
+        Picasso.get().load(user.getAvatarUrl()).into(imgUser);
         tvName.setText(user.getUserName());
         Log.d("bartoUser",user.getFollowers());
         following.setText(user.getFollowing());
